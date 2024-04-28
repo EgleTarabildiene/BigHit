@@ -1,0 +1,41 @@
+.container2{
+    margin: 20px;
+}
+h1{
+    text-align: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    background-color: gray;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+
+.navbar a:hover {
+    background-color: rgb(44, 42, 42);
+}
+
+.navbar li {
+    float: left;
+}
+
+button{
+background-color: gray;
+border: none;
+padding: 5px 10px;
+color: white;
+}
+
+button:hover {
+    background-color: rgb(44, 42, 42);
+}

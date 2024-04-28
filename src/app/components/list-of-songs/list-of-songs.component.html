@@ -1,0 +1,31 @@
+<div class="listContainer">
+
+    <div class="lentele">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nr.</th>
+                    <th>Dainos atlikėjas</th>
+                    <th>Dainos pavadinimas</th>
+                    <th>Išleidimo metai</th>
+                    <th>Statusas</th>
+                    <th class="table-veiksmai">Veiksmai</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let song of songs; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{song.author}}</td>
+                    <td>{{song.songName}}</td>
+                    <td>{{song.year}}</td>
+                    <td>{{song.status}}</td>
+                    <td>
+                        <a class="migtukas">Redaguoti</a>&nbsp;
+                        <a class="migtukas">Ištrinti</a>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

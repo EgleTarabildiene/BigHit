@@ -1,0 +1,22 @@
+.table-veiksmai{
+    width: 210px;
+    background-color: aquamarine;
+}
+
+.migtukas {
+    background-color: gray;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.migtukas:hover {
+    background-color: rgb(44, 42, 42);
+}
+
+th{
+    background-color: aquamarine;
+    border: 2px rgb(123, 224, 191) solid;
+  text-align: center;
+}

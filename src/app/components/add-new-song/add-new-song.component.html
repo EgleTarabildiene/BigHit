@@ -1,0 +1,32 @@
+<div class="containerAdd">
+    <div class="add">
+        <h2>Pridėti naują dainą</h2>
+    </div>
+    <div class="inputai">
+        <div class="songAuthor">
+            <label for="">Dainos atlikėjas</label>
+            <input type="text" name="" id="" [(ngModel)]="author">
+        </div>
+        <div class="songName">
+            <label for="">Dainos pavadinimas</label>
+            <input type="text" name="" id="" [(ngModel)]="songName">
+        </div>
+        <div class="year">
+            <label for="">Išleidimo metai</label>
+            <input type="date" name="" id="" [(ngModel)]="year">
+        </div>
+        <div class="pasirinkimas">
+            <label for="">Mano pasirinkimas</label>
+            <select name="" id="" [(ngModel)]="status">
+                <option value="megstama">Megstama</option>
+                <option value="nepatinka">Nepatinka</option>
+                <option value="paklausyti">Paklausyti</option>
+            </select>
+        </div>
+
+        <button (click)="addSong()">Prideti</button>
+    </div>
+
+
+
+</div>

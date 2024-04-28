@@ -1,0 +1,39 @@
+.containerAdd{
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  
+    margin: 20px;
+    background-color: aquamarine;
+    border: 2px rgb(123, 224, 191) solid;
+}
+
+h2{
+    font-size: 40px;
+}
+
+input{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    margin-bottom:10px;
+    border: 2px rgb(123, 224, 191) solid;
+}
+select{
+    margin: 20px;
+    border: 2px rgb(123, 224, 191) solid;
+}
+
+button {
+    background-color: gray;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: rgb(44, 42, 42);
+}
