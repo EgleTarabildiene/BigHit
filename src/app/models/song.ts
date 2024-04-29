@@ -2,5 +2,6 @@ export interface Song{
     author:string,
     songName:string,
     year:number,
-    status:string
+    status:string,
+    id:string|null
 }

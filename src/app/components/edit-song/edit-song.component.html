@@ -18,13 +18,13 @@
         <div class="pasirinkimas">
             <label for="">Mano pasirinkimas</label>
             <select name="" id="" [(ngModel)]="status">
-                <option value="Megstama">Megstama</option>
+                <option value="megstama">Megstama</option>
                 <option value="nepatinka">Nepatinka</option>
                 <option value="paklausyti">Paklausyti</option>
             </select>
         </div>
 
-        <button (click)="addSong()" [disabled]="author==null || songName==null || status==null">Prideti</button>
+        <button (click)="updateRecord()">Isaugoti</button>
     </div>
 
 
