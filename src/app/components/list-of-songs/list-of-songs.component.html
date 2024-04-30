@@ -1,7 +1,10 @@
 <div class="listContainer">
+    <app-loading *ngIf="isLoading"></app-loading>
 
+
+    <div class="alert alert-danger" *ngIf="isError">Klaida</div>
     <div class="lentele">
-        <table class="table">
+        <table class="table" *ngIf="!isLoading && !isError">
             <thead>
                 <tr>
                     <th>Nr.</th>

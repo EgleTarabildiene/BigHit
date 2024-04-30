@@ -3,11 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SongsService } from '../../services/songs.service';
 import { Song } from '../../models/song';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { LoadingComponent } from '../loading/loading.component';
 
 @Component({
   selector: 'app-edit-song',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule, LoadingComponent],
   templateUrl: './edit-song.component.html',
   styleUrl: './edit-song.component.css'
 })
@@ -17,6 +19,7 @@ public author:string|null=null;
 public songName:string|null=null;
 public year:number|null=null;
 public status:string|null=null;
+public isLoading=false;
 
 
 constructor(private route:ActivatedRoute, private router:Router, private songsService:SongsService){
@@ -42,7 +45,10 @@ public updateRecord(){
         year:this.year,
         status:this.status
       }
-      this.songsService.updateRecord(record).subscribe(()=>{
+      this.isLoading=true;
+      
+    this.songsService.updateRecord(record).subscribe(()=>{
+      this.isLoading=false;
       this.router.navigate(['list']);
       
       });

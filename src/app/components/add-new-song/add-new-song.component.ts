@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { SongsService } from '../../services/songs.service';
 import { FormsModule } from '@angular/forms';
+import { LoadingComponent } from '../loading/loading.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-new-song',
   standalone: true,
-  imports: [FormsModule],
+  imports: [CommonModule,  FormsModule, LoadingComponent],
   templateUrl: './add-new-song.component.html',
   styleUrl: './add-new-song.component.css'
 })
@@ -15,6 +17,7 @@ export class AddNewSongComponent {
   public songName:string|null = null;
   public year:number=NaN;
   public status:string| string|null=null;
+  public isLoading=false;
 
 public constructor(private songsService:SongsService){
 
@@ -22,6 +25,7 @@ public constructor(private songsService:SongsService){
 
 public addSong(){
   if(this.author != null && this.songName !=null && this.status != null){
+    this.isLoading=true;
     this.songsService.addSong({
       author:this.author,
       songName:this.songName,
@@ -33,7 +37,7 @@ public addSong(){
       this.songName=null;
       this.year=NaN;
       this.status=null;
-
+      this.isLoading=false;
     })
   }
 }
