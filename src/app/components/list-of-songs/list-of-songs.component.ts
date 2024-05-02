@@ -4,11 +4,12 @@ import { Song } from '../../models/song';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LoadingComponent } from '../loading/loading.component';
+import { ErrorComponent } from '../error/error.component';
 
 @Component({
   selector: 'app-list-of-songs',
   standalone: true,
-  imports: [CommonModule, RouterLink, LoadingComponent],
+  imports: [CommonModule, RouterLink, LoadingComponent, ErrorComponent],
   templateUrl: './list-of-songs.component.html',
   styleUrl: './list-of-songs.component.css'
 })
@@ -72,5 +73,9 @@ public deleteRecord(id:string| null){
   this.isLoading=false;
   });
 }
+ }
+
+ public closeError(){
+  this.loadData();
  }
 }

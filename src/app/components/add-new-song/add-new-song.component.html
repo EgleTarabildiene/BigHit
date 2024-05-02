@@ -4,6 +4,7 @@
         <h2>Pridėti naują dainą</h2>
     </div>
     <div class="inputai">
+        <app-error *ngIf="isError" [message]="'Prideti naojo iraso nepavyko'"></app-error>
         <div class="songAuthor">
             <label for="">Dainos atlikėjas</label>
             <input type="text" name="" id="" [(ngModel)]="author">
