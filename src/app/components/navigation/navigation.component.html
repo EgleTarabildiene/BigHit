@@ -5,6 +5,6 @@
             <li><a routerLink="/list">Dainu sarašas</a></li>
             <li><a routerLink="/addnew">Pridėti naują dainą</a></li>
         </ul>
-        <button type="submit">Atsijungti</button>
+        <button type="submit" *ngIf="isLoggedin" (click)="onClickLogout()">Atsijungti</button>
     </nav>
 </div>

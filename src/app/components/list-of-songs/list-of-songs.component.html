@@ -2,7 +2,7 @@
     <app-loading *ngIf="isLoading"></app-loading>
 
 
-    <app-error *ngIf="isError" [message]="'Dainu saraso uzkrauti nepavyko'" (close)="closeError()"></app-error>
+    <app-error *ngIf="isError" [message]="'Dainų sarašo užkrauti nepavyko'" (close)="closeError()"></app-error>
     <div class="lentele">
         <table class="table" *ngIf="!isLoading && !isError">
             <thead>

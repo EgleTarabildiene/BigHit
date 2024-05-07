@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LoadingComponent } from '../loading/loading.component';
 import { ErrorComponent } from '../error/error.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-list-of-songs',
@@ -20,9 +21,10 @@ public isLoading=false;
 public isError=false;
 
 
-public constructor(private songsService:SongsService){
+public constructor(private songsService:SongsService, private authService:AuthService){
   //this.songs=songsService.songs;
 this.loadData();
+//this.authService.register("eta@eta.lt", "labasrytas", false)
 
 
 }
@@ -69,8 +71,9 @@ public deleteRecord(id:string| null){
   if(id!=null){
     this.isLoading=true;
   this.songsService.deleteRecord(id).subscribe(()=>{
-  this.loadData();
-  this.isLoading=false;
+  
+    this.loadData();
+  
   });
 }
  }
