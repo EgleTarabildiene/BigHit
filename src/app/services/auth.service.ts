@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { AuthResponseData } from '../models/AuthResponseData';
 import { tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { AuthResponseData } from '../models/authResponseData';
 
 @Injectable({
   providedIn: 'root'
@@ -20,19 +20,34 @@ public onUserStatusChange=new EventEmitter<boolean>();
     const method=(newUser)?'signUp':'signInWithPassword';
 
 return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:'+method+'?key=AIzaSyC4gUDhdYtqTRRLdlx0cMLXHw72rAYdATI',{
-      email:email,
+     email:email,
       password:password,
       returnSecureToken:true
     }).pipe(tap( (response)=>{
       this.auth=response;
       this.isLoggedin=true;
+    localStorage.setItem("user", JSON.stringify(this.auth));
       this.onUserStatusChange.emit(true);
     }));
   }
 
+
+  public autoLogin(){
+    let user=localStorage.getItem("user");
+   
+    if (user!=null){
+        this.auth= JSON.parse(user);
+        this.isLoggedin=true;
+        this.onUserStatusChange.emit(true);
+    }
+
+  }
+
+  
   public logout(){
-    this.isLoggedin=true;
+    this.isLoggedin=false;
     this.auth=null;
+    localStorage.removeItem("user");
     this.onUserStatusChange.emit(false);
     this.router.navigate(['/']);
   }

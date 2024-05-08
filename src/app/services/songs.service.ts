@@ -20,7 +20,7 @@ constructor(private http:HttpClient, private authService: AuthService){}
 
 public addSong(item:Song){
 this.songs.push(item);
-return this.http.post("https://kaledos-71115-default-rtdb.europe-west1.firebasedatabase.app/songs.json?auth"+this.authService.auth?.idToken,item).pipe(
+return this.http.post("https://kaledos-71115-default-rtdb.europe-west1.firebasedatabase.app/songs.json", item).pipe(
     tap(()=>this.onSongsCountChange.emit())
 );
 }
@@ -29,8 +29,8 @@ return this.http.post("https://kaledos-71115-default-rtdb.europe-west1.firebased
 public loadData(){
   //Gauname observable
  return this.http
- .get<{[key:string]:Song}>("https://kaledos-71115-default-rtdb.europe-west1.firebasedatabase.app/songs.json?auth="+this.authService.auth?.idToken)
-.pipe(
+ .get<{[key:string]:Song}>("https://kaledos-71115-default-rtdb.europe-west1.firebasedatabase.app/songs.json")
+ .pipe(
   map( (data):Song[]=>{
     let songs=[];
   for (let x in data){
@@ -51,8 +51,6 @@ this.onStatusChange.emit(0);
   tap((data)=>{
 
   console.log("Duomenis is tap");
-
-
   })
 )
 */
@@ -65,15 +63,15 @@ this.onStatusChange.emit(0);
 
 
 public loadRecord(id:string){
-return this.http.get<Song>("https://kaledos-71115-default-rtdb.europe-west1.firebasedatabase.app/songs/"+id+".json?auth="+this.authService.auth?.idToken);
+return this.http.get<Song>("https://kaledos-71115-default-rtdb.europe-west1.firebasedatabase.app/songs/"+id+".json");
 }
 
 public updateRecord(item:Song){
- return this.http.patch("https://kaledos-71115-default-rtdb.europe-west1.firebasedatabase.app/songs/"+item.id+".json?auth="+this.authService.auth?.idToken,item);
+ return this.http.patch("https://kaledos-71115-default-rtdb.europe-west1.firebasedatabase.app/songs/"+item.id+".json", item);
 }
 
 public deleteRecord(id:string){
-   return this.http.delete("https://kaledos-71115-default-rtdb.europe-west1.firebasedatabase.app/songs/"+id+".json?auth="+this.authService.auth?.idToken).pipe(
+   return this.http.delete("https://kaledos-71115-default-rtdb.europe-west1.firebasedatabase.app/songs/"+id+".json").pipe(
     tap(()=>this.onSongsCountChange.emit())
 );
 }

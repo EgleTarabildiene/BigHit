@@ -30,6 +30,7 @@ this.songsService.onStatusChange.subscribe(
     this.isError=false;
   } else{
     this.isError=true;
+  
   }
  
   }
